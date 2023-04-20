@@ -347,6 +347,8 @@ body {
 
 .arrows {
     overflow: hidden;
+    width: 80%;
+    margin: auto;
 }
 
 .arrows .prev ,
@@ -430,6 +432,8 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    width: 95%;
+    margin: auto;
 }
 
 
@@ -512,6 +516,8 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     gap: 30px;
+    width: 80%;
+    margin: auto;
 }
 
 .packages .container-box .box {
@@ -1058,6 +1064,18 @@ body {
     }
     html{
         font-size: 50%;
+    }
+    .gallery .container-img {
+        width: 80%;
+        margin: auto;
+    }
+    .services .boxes {
+        width: 70%;
+        margin: auto;
+    }
+    .contact .container {
+        width: 80%;
+        margin: auto;
     }
 }
 /* media header  */
