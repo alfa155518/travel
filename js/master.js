@@ -12,7 +12,7 @@ let exit = document.querySelector(".login-form  i.exit")
 
 let allVideos = document.querySelector(".videos")
 
-let allVideo = document.querySelectorAll(".landing .videos video")
+let allVideo = Array.from(document.querySelectorAll(".landing .videos video"))
 
 let lengthVideo = allVideo.length
 
@@ -180,6 +180,35 @@ function handelActive() {
 
 }
 
+// start intersection-observer 
+
+
+
+const observerVideo = new IntersectionObserver(function(entries, observer) {
+
+    const filterVideo = allVideo.filter(video => video.classList.contains("active"))
+
+    entries.forEach(entry => {
+        const videoObserver = entry.target
+
+        if(entry.isIntersecting) {
+
+            if(filterVideo.length == 1)
+            videoObserver.setAttribute("src", videoObserver.getAttribute("data-src"))
+        } else {
+            console.log(2222)
+        }
+    })
+
+    
+    
+}
+,{}) 
+
+allVideo.forEach(video => {
+    observerVideo.observe(video)
+})
+
 // end slider videos  
 
 
@@ -249,23 +278,21 @@ function handelActive() {
 
             // start intersection-observer API 
 
-            const observer = new IntersectionObserver( function ( entries,observer ) {
+            const observer = new IntersectionObserver(function (entries, observer) {
                 entries.forEach(entry => {
                     if(entry.isIntersecting) {
-
                         const img = entry.target
 
-                            img.setAttribute("src", img.getAttribute("data-src"))
+                        img.setAttribute('src', img.getAttribute("data-src"))
+    
+                        observer.unobserve(img)
 
-                            observer.unobserve(entry.target)
-                        
                     }
                 })
-
-
-            },{
-                rootMargin: `0px 0px -200px 0px`,
-                threshold: `0.1`
+            }
+            , {
+                rootMargin: "0px 0px 0px 0px",
+                threshold: "0.5"
             })
 
             allImages.forEach(img => {

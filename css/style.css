@@ -633,6 +633,8 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     gap: 30px;
+    margin: auto;
+    width: 90%;
 }
 
 .services .boxes .box {
