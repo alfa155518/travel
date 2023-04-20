@@ -183,16 +183,16 @@ function handelActive() {
 // start intersection-observer 
 
 
-const filterVideo = allVideo.filter(video => video.classList.contains("active"))
 
 const observerVideo = new IntersectionObserver(function(entries, observer) {
-
-
+    
+    
     entries.forEach(entry => {
         const videoObserver = entry.target
-
+        
         if(entry.isIntersecting) {
-
+            
+            const filterVideo = allVideo.filter(video => video.classList.contains("active"))
             if(filterVideo.length == 1)
             videoObserver.setAttribute("src", videoObserver.getAttribute("data-src"))
         } else {
