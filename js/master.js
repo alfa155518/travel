@@ -184,30 +184,6 @@ function handelActive() {
 
 
 
-const observerVideo = new IntersectionObserver(function(entries, observer) {
-    
-    
-    entries.forEach(entry => {
-        const videoObserver = entry.target
-        
-        if(entry.isIntersecting) {
-            
-            const filterVideo = allVideo.filter(video => video.classList.contains("active"))
-            if(filterVideo.length == 1)
-            videoObserver.setAttribute("src", videoObserver.getAttribute("data-src"))
-        } else {
-            console.log(2222)
-        }
-    })
-
-    
-    
-}
-,{}) 
-
-allVideo.forEach(video => {
-    observerVideo.observe(video)
-})
 
 // end slider videos  
 
@@ -283,7 +259,7 @@ allVideo.forEach(video => {
                     if(entry.isIntersecting) {
                         const img = entry.target
 
-                        img.setAttribute('src', img.getAttribute("data-src"))
+                        img.src = img.dataset.src
     
                         observer.unobserve(img)
 
@@ -291,7 +267,7 @@ allVideo.forEach(video => {
                 })
             }
             , {
-                rootMargin: "0px 0px 0px 0px",
+                rootMargin: "0px 0px -200px 0px",
                 threshold: "0.5"
             })
 
